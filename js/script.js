@@ -1,3 +1,11 @@
+// funzione che crea la colonna
+function createColumns() {
+  const col = document.createElement("div");
+  col.classList.add("col-12", "col-md-6", "col-lg-4");
+
+  return col;
+}
+
 //  creo array di oggetti
 
 const team = [
@@ -41,10 +49,28 @@ const team = [
 console.log(team);
 
 // recupreo l'elemento del dom in cui andare a mettere le colonne con i film
-
 const teamsContainer = document.getElementById("teams-container");
 
 //  ciclo l'array
 for (let i = 0; i < team.length; i++) {
-  teamsContainer.innerHTML += `${team[i].name} ${team[i].role} ${team[i].image}<br>`;
+  // creo la colonna
+  const col = createColumns();
+
+  //   all'interno della colonna inserisco le info del team
+  col.innerHTML = `<div class="card m-2">
+  <div class="card-img-top">
+    <img src="./img/${team[i].image}" class="img-fluid">
+  </div>
+    <div class="card-body">
+        <h2>
+            ${team[i].name}
+        </h2>
+        <p>
+         <strong>Role:</strong> ${team[i].role} 
+        </p>
+    </div>
+ 
+</div>`;
+
+  teamsContainer.appendChild(col);
 }

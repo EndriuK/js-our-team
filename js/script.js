@@ -39,3 +39,12 @@ const team = [
 ];
 
 console.log(team);
+
+// recupreo l'elemento del dom in cui andare a mettere le colonne con i film
+
+const teamsContainer = document.getElementById("teams-container");
+
+//  ciclo l'array
+for (let i = 0; i < team.length; i++) {
+  teamsContainer.innerHTML += `${team[i].name} ${team[i].role} ${team[i].image}<br>`;
+}
